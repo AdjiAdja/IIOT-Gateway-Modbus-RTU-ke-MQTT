@@ -6,15 +6,14 @@ Sistem ini dibangun di atas **FreeRTOS** agar proses *polling* Modbus dan *publi
 
 ## Arsitektur Sistem
 
-```mermaid
 graph TD
-    subgraph Lantai Pabrik (Field)
+    subgraph Field[Lantai Pabrik Field]
         S1[Power Meter Modbus]
         S2[Sensor Suhu/Kelembaban]
         PLC[Legacy PLC]
     end
 
-    subgraph STM32 Gateway
+    subgraph Gateway[STM32 Gateway]
         RS485[RS485 Transceiver]
         MCU(STM32F4/F1 Core)
         NET[W5500 Ethernet / ESP32 Coprocessor]
@@ -23,7 +22,7 @@ graph TD
         MCU <-->|SPI/UART| NET
     end
 
-    subgraph Cloud / Server
+    subgraph Cloud[Cloud / Server]
         Broker((MQTT Broker))
         DB[(InfluxDB / Timescale)]
         Dash[Grafana / ThingsBoard]
@@ -36,7 +35,6 @@ graph TD
     NET -->|TCP/IP| Broker
     Broker --> DB
     DB --> Dash
-```
 
 ## Spesifikasi Target
 *   **MCU**: STM32F103 / STM32F407
