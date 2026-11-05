@@ -1,0 +1,15 @@
+# Aturan abaikan file standard untuk project STM32/Eclipse
+Debug/
+Release/
+*.o
+*.elf
+*.hex
+*.bin
+*.map
+*.su
+
+# Konfigurasi spesifik user/IDE
+.vscode/
+.settings/
+*.launch
+.mxproject
